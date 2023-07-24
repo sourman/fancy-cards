@@ -3,9 +3,9 @@
 body {
     padding: 0;
     margin: 0;
-    background-color: rgb(1, 1, 11);
+    background-color: rgb(1 1 11);
     color: goldenrod;
-    font-family: 'Inter', sans-serif;;
+    font-family: Inter, sans-serif;
 }
 
 .card-track {
@@ -14,8 +14,17 @@ body {
     padding: 3rem;
     overflow-x: scroll;
     max-width: 50%;
-    z-index: 10;
 }
+
+/** The pseudoelement below is an attempt at shadiwing out the edges of the track */
+.card-track::after {
+    position: relative;
+    content: none;
+    background-color: transparent;
+    box-shadow: -3rem 0 3rem white;
+    z-index: 1;
+}
+
 
 .card-track::-webkit-scrollbar {
     width: 0.5rem;
@@ -23,7 +32,7 @@ body {
 }
 
 .card-track::-webkit-scrollbar-thumb {
-    background-color: rgb(14, 15, 17);
+    background-color: rgb(14 15 17);
     border-radius: 10px;
 }
 
@@ -31,17 +40,13 @@ body {
     display: flex;
     position: relative;
     flex-direction: column;
-    background-color: rgb(14, 15, 17);
+    background-color: rgb(14 15 17);
     height: 16rem;
-    /* width: 12rem; */
     min-width: 11rem;
     overflow: hidden;
     padding: 1.5rem;
-    align-items: center;
-    text-align: center;
     border-radius: 1rem;
-    box-shadow: -1rem -0rem 3rem black;
-    
+    box-shadow: -1rem 0 3rem black;
     transition: 0.2s;
 }
 
@@ -49,13 +54,14 @@ body {
     transform: translateY(-0.5rem);
 }
 
+.card:not(:first-child) {
+    margin-left: -3rem;
+}
+
 .card:hover~.card {
     transform: translateX(3rem);
 }
 
-.card:not(:first-child) {
-    margin-left: -3rem;
-}
 .image {
     flex: 1;
 }
