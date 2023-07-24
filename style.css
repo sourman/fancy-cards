@@ -15,8 +15,6 @@ body {
     overflow-x: scroll;
     max-width: 50%;
     z-index: 10;
-    box-shadow: inset 3rem 0 3rem -1rem rgb(1, 1, 11),
-                inset -3rem 0 3rem -1rem rgb(1, 1, 11);
 }
 
 .card-track::-webkit-scrollbar {
@@ -33,7 +31,6 @@ body {
     display: flex;
     position: relative;
     flex-direction: column;
-    z-index: -1;
     background-color: rgb(14, 15, 17);
     height: 16rem;
     /* width: 12rem; */
@@ -45,9 +42,20 @@ body {
     border-radius: 1rem;
     box-shadow: -1rem -0rem 3rem black;
     
-    
+    transition: 0.2s;
 }
 
+.card:hover {
+    transform: translateY(-0.5rem);
+}
+
+.card:hover~.card {
+    transform: translateX(3rem);
+}
+
+.card:not(:first-child) {
+    margin-left: -3rem;
+}
 .image {
     flex: 1;
 }
